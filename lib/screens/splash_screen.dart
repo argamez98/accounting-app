@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'home_page.dart';
+import 'sign_in_page.dart';
 class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   navigateToDeviceScreen() {
     Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => HomePage()));
+        MaterialPageRoute(builder: (context) => SignInPage()));
   }
   @override
   Widget build(BuildContext context) {
