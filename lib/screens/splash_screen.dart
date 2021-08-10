@@ -31,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Text(
               "Hello!",
-              key: Key("homebrew"),
               style: TextStyle(
                   color: Color(0xFFFFFFFFF),
                   fontSize: 50,
@@ -40,7 +39,6 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Text(
               "Welcome to my app",
-              key: Key("SubTitle"),
               style: TextStyle(
                   color: Color(0xFFFFFFFFF),
                   fontSize: 18,
