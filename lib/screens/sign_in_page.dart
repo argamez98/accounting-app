@@ -25,7 +25,7 @@ class SignInPage extends StatelessWidget {
             width: 190.0,
             padding: EdgeInsets.only(top: 40),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(200),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Center(
               child: Image.asset('web/icons/Icon-192.png'),
