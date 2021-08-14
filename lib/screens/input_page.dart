@@ -7,10 +7,15 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+    String text = "";
   @override
   Widget build(BuildContext context) {
-    String text = "";
-
+    //helper function to work the buttons
+    _onKeyboardTap(String value) {
+      setState(() {
+        text = text + value;
+      });
+    }
     final centerText = Center(
       child: Text(
         "Enter amount spent",
@@ -29,19 +34,13 @@ class _InputPageState extends State<InputPage> {
             width: MediaQuery.of(context).size.width / 1.4,
             height: MediaQuery.of(context).size.height / 16,
             child: DecoratedBox(
+              child: Text(text),
                 decoration: BoxDecoration(
                     color: Color(0xFFFFB4A2),
                     borderRadius: BorderRadius.circular(50)))),
         Spacer(),
       ],
-    ); 
-    //helper function to work the buttons
-    _onKeyboardTap(String value) {
-      setState(() {
-        text = text + value;
-        print(text);
-      });
-    }
+    );
 
     //NUMERIC KEYPAD
     final numKeyboard = NumericKeyboard(
