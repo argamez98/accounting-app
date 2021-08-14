@@ -8,6 +8,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
+    
     final centerText = Center(
       child: Text(
         "Enter amount spent",
@@ -17,12 +18,15 @@ class _InputPageState extends State<InputPage> {
         ),
       ),
     );
+
     final numDisplayBox = SizedBox(
         width: MediaQuery.of(context).size.width / 1.4,
         height: MediaQuery.of(context).size.height / 16,
         child: DecoratedBox(
-            decoration: BoxDecoration(color: Color(0xFFFFB4A2),
-            borderRadius: BorderRadius.circular(50))));
+            decoration: BoxDecoration(
+                color: Color(0xFFFFB4A2),
+                borderRadius: BorderRadius.circular(50))));
+
     return Scaffold(
       backgroundColor: Color(0xFFFFCDB2),
       body: Column(
