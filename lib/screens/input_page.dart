@@ -7,7 +7,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-    String text = "";
+  String text = "";
   @override
   Widget build(BuildContext context) {
     //helper function to work the buttons
@@ -16,6 +16,7 @@ class _InputPageState extends State<InputPage> {
         text = text + value;
       });
     }
+
     final centerText = Center(
       child: Text(
         "Enter amount spent",
@@ -34,7 +35,16 @@ class _InputPageState extends State<InputPage> {
             width: MediaQuery.of(context).size.width / 1.4,
             height: MediaQuery.of(context).size.height / 16,
             child: DecoratedBox(
-              child: Text(text),
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                    child: Text(
+                      text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF6C5C8D),
+                        fontSize: 20,
+                      ),
+                    )),
                 decoration: BoxDecoration(
                     color: Color(0xFFFFB4A2),
                     borderRadius: BorderRadius.circular(50)))),
@@ -45,30 +55,54 @@ class _InputPageState extends State<InputPage> {
     //NUMERIC KEYPAD
     final numKeyboard = NumericKeyboard(
       onKeyboardTap: _onKeyboardTap,
-      textColor: Colors.white,
+      textColor: Color(0xFF6C5C8D),
       rightButtonFn: () {
         setState(() {
-          text = text.substring(0, text.length - 1);
+          if (text.length > 0) text = text.substring(0, text.length - 1);
         });
       },
-      rightIcon: Icon(Icons.backspace, color: Colors.white),
+      rightIcon: Icon(Icons.backspace, color: Color(0xFF6C5C8D)),
       leftButtonFn: () {
-        print("left button clicked");
+        setState(() {
+          text = text + ".";
+        });
       },
-      leftIcon: Icon(Icons.check, color: Colors.white),
+      leftIcon: Icon(Icons.brightness_1, color: Color(0xFF6C5C8D)),
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     );
 
+    final circleButton = ClipOval(
+        //  clipper: Clipper(),
+        child: Container(
+      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+      child: Text(
+        "Continue",
+        style: TextStyle(fontSize: 30, backgroundColor: Color(0xFFE5989B)),
+      ),
+    ));
+
     return Scaffold(
+      floatingActionButton: circleButton,
       backgroundColor: Color(0xFFFFCDB2),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           centerText,
           numDisplayBox,
           numKeyboard,
+          //circleButton,
         ],
       ),
     );
+  }
+}
+
+class Clipper extends CustomClipper<Rect> {
+  Rect getClip(Size size) {
+    return Rect.fromLTWH(0, 0, 200, 100);
+  }
+
+  bool shouldReclip(oldClipper) {
+    return false;
   }
 }
