@@ -77,12 +77,16 @@ class _InputPageState extends State<InputPage> {
       padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
       child: Text(
         "Continue",
-        style: TextStyle(fontSize: 30, backgroundColor: Color(0xFFE5989B)),
+        style: TextStyle(fontSize: 30, backgroundColor: Color(0xFFFFB4A2)),
       ),
     ));
 
     return Scaffold(
       floatingActionButton: circleButton,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Color(0xFF6C5C8D)),
+        backgroundColor: Color(0xFFFFB4A2),
+      ),
       backgroundColor: Color(0xFFFFCDB2),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
