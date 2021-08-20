@@ -71,18 +71,24 @@ class _InputPageState extends State<InputPage> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     );
 
-    final circleButton = ClipOval(
-        //  clipper: Clipper(),
-        child: Container(
-      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-      child: Text(
-        "Continue",
-        style: TextStyle(fontSize: 30, backgroundColor: Color(0xFFFFB4A2)),
+    final circleButton = ClipRect(
+      child: Align(
+      alignment: Alignment.center,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+            minimumSize: Size(50, 100),
+            shape: CircleBorder(),
+            primary: Color(0xFFE5989B)),
+        child: Text(
+          "Continue",
+          style: TextStyle(fontSize: 19, color: Color(0xFF6C5C8D)),
+        ),
       ),
     ));
 
     return Scaffold(
-      floatingActionButton: circleButton,
+      //floatingActionButton: circleButton,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFF6C5C8D)),
         backgroundColor: Color(0xFFFFB4A2),
@@ -94,19 +100,9 @@ class _InputPageState extends State<InputPage> {
           centerText,
           numDisplayBox,
           numKeyboard,
-          //circleButton,
+          circleButton,
         ],
       ),
     );
-  }
-}
-
-class Clipper extends CustomClipper<Rect> {
-  Rect getClip(Size size) {
-    return Rect.fromLTWH(0, 0, 200, 100);
-  }
-
-  bool shouldReclip(oldClipper) {
-    return false;
   }
 }
