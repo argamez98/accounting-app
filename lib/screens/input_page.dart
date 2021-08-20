@@ -16,7 +16,8 @@ class _InputPageState extends State<InputPage> {
         text = text + value;
       });
     }
-
+    
+    //text on the header
     final centerText = Center(
       child: Text(
         "Enter amount spent",
@@ -27,6 +28,7 @@ class _InputPageState extends State<InputPage> {
       ),
     );
 
+    //NUMPAD
     final numDisplayBox = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -70,7 +72,8 @@ class _InputPageState extends State<InputPage> {
       leftIcon: Icon(Icons.brightness_1, color: Color(0xFF6C5C8D)),
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     );
-
+    
+    //CIRCLE BUTTON
     final circleButton = ClipRect(
       child: Align(
       alignment: Alignment.center,
